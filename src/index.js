@@ -1,13 +1,16 @@
 const express=require('express');
 
 const {PORT} =require('./config/serverConfig');
-const cityRepository = require('./repository/city-repository');
+const ApiRoutes=require('./routes/index');
 const setUpAndServer =async()=>{
     // create express app
     const app=express();
 
     //body parser middleware
     app.use(express.json());
+
+    // map the api routes to router
+    app.use('/api',ApiRoutes);
 
     // start the server
     app.listen(PORT,()=>{
