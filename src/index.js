@@ -1,6 +1,7 @@
 const express=require('express');
 
 const {PORT} =require('./config/serverConfig');
+const cityRepository = require('./repository/city-repository');
 const setUpAndServer =async()=>{
     // create express app
     const app=express();

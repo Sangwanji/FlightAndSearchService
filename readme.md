@@ -58,6 +58,10 @@ npm install
 ```bash
 cp .env.example .env
 ```
+For Windows
+```
+copy .env.example .env
+```
 Edit `.env` with your values:
 ```
 PORT=5000
@@ -75,7 +79,20 @@ PORT=5000
 }
 ```
 ### Create Database
+```
 Once config.json create database by running below command in src
+`npx sequelize db:create`
+and then execute
+`npx sequelize db:migrate`
 ```
-npx sequelize db:create
-```
+
+
+## DB Design
+ - Airplane Table
+ - Flight Table
+ - Airport Table
+ - City Table
+
+ - A Flight belong to an single airplane but an airplane belong to multiple flight
+ - A city has many airport but an airport belong to a single city
+ - One airport can have many flights but a flight belong to one airport
