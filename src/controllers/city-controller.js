@@ -70,6 +70,25 @@ const get= async (req,res)=>{
         });
     }
 }
+const getAll= async (req,res)=>{
+    try{
+        const cities=await CityServiceInstance.getCityAll();
+        return res.status(200).json({
+            data:cities,
+            success:true,
+            message:'Successfully Fetched all city',
+            err:{}
+        });
+    } catch(error){
+        console.log(error);
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:'Not able to get a city',
+            err:error
+        });
+    }
+}
 
 /**
  * Patch
@@ -100,5 +119,6 @@ module.exports={
     create,
     destroy,
     get,
-    update
+    update,
+    getAll
 }
