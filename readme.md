@@ -96,3 +96,11 @@ and then execute
  - A Flight belong to an single airplane but an airplane belong to multiple flight
  - A city has many airport but an airport belong to a single city
  - One airport can have many flights but a flight belong to one airport
+
+
+ ### Tables
+
+ ### City -> id,name,created_at,updated_at
+ ### Airport -> id,name,city_id,created_at,updated_at 
+ ``` Relationship -> City has many airports and airport belong to city [1:n]```
+ 
