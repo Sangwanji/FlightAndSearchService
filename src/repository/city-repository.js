@@ -1,10 +1,17 @@
 const {City} = require('../models/index');
 const {Op}=require('sequelize')
 class CityRepository {
-    async createCity({name}) {
+    async createCities(cities) {
         try {
-            const city = await City.create({name});
-            return city;
+            return await City.bulkCreate(cities,{ignoreDuplicates: true});
+        }catch (error) {
+            console.log("Something went wrong in the repository layer");
+            throw {error};
+        }
+    }
+    async createCity(cities) {
+        try {
+            return await City.create(cities);
         }catch (error) {
             console.log("Something went wrong in the repository layer");
             throw {error};

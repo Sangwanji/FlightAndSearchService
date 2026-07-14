@@ -7,6 +7,10 @@ class CityService{
 
     async createCity(data){
         try{
+            if(Array.isArray(data)){
+                const cities=await this.cityRepository.createCities(data);
+                return cities;
+            }
             const city=await this.cityRepository.createCity(data);
             return city;
         }catch(error){

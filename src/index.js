@@ -28,8 +28,8 @@ const setUpAndServer =async()=>{
             }
         });
         const airports=await city.getAirports();
-        console.log(city);
-        console.log(airports);
+        // console.log(city);
+        // console.log(airports);
     })
 }
 
