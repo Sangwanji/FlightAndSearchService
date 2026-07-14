@@ -115,10 +115,36 @@ const update= async (req,res)=>{
     }
 }
 
+
+/**
+ * Get
+ * url /cities/:id/airports
+ */
+const getAirport=async (req,res)=>{
+    try{
+        const airports=await CityServiceInstance.getAirportByCity(req.params.id);
+        return res.status(200).json({
+            data:airports,
+            success:true,
+            message:"Successfully get airports",
+            err:{}
+        });
+    }catch(error){
+        console.log(error);
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:'Not able to get airport',
+            err:error
+        });
+    }
+}
+
 module.exports={
     create,
     destroy,
     get,
     update,
-    getAll
+    getAll,
+    getAirport
 }
