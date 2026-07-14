@@ -104,3 +104,4 @@ and then execute
  ### Airport -> id,name,city_id,created_at,updated_at 
  ``` Relationship -> City has many airports and airport belong to city [1:n]```
  
+ 
