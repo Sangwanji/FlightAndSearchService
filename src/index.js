@@ -12,6 +12,7 @@ const setUpAndServer =async()=>{
 
     //body parser middleware
     app.use(express.json());
+    app.use(express.urlencoded({extended:true}));
 
     // map the api routes to router
     app.use('/api',ApiRoutes);
