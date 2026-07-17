@@ -1,5 +1,5 @@
 const {FlightRepository,AirplaneRepository} =require("../repository/index");
-const {isValidFlightTime}=require("../utils/timeCompare");
+const {isValidFlightTime}=require("../utils/helper");
 
 class FlightService{
     constructor(){
@@ -36,6 +36,15 @@ class FlightService{
         try {
             const flight=await this.flightRepository.getAllFlights(filter);
             return flight;
+        } catch (error) {
+            console.log("Something went wrong at service layer");
+            throw {error};
+        }
+    }
+
+    async updateFlight(flightId,data){
+        try {
+            const response=await this.flightRepository.update(flightId,data);
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};

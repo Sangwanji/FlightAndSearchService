@@ -23,14 +23,14 @@ const setUpAndServer =async()=>{
         if(process.env.SYNC_DB){
             db.sequelize.sync({alter:true});
         }
-        const city=await City.findOne({
-            where:{
-                id:7
-            }
-        });
-        const airports=await city.getAirports();
-        // console.log(city);
-        // console.log(airports);
+        // const city=await City.findOne({
+        //     where:{
+        //         id:7
+        //     }
+        // });
+        // const airports=await city.getAirports();
+        // // console.log(city);
+        // // console.log(airports);
     })
 }
 
